@@ -496,7 +496,7 @@ public final class KQueueSocketChannel extends AbstractKQueueChannel implements 
         } else {
             shutdownOutputFuture.addListener(new ChannelFutureListener() {
                 @Override
-                public void operationComplete(final ChannelFuture shutdownOutputFuture) throws Exception {
+                public void operationComplete(final ChannelFuture shutdownOutputFuture) {
                     shutdownOutputDone(shutdownOutputFuture, promise);
                 }
             });
@@ -511,7 +511,7 @@ public final class KQueueSocketChannel extends AbstractKQueueChannel implements 
         } else {
             shutdownInputFuture.addListener(new ChannelFutureListener() {
                 @Override
-                public void operationComplete(ChannelFuture shutdownInputFuture) throws Exception {
+                public void operationComplete(ChannelFuture shutdownInputFuture) {
                     shutdownDone(shutdownOutputFuture, shutdownInputFuture, promise);
                 }
             });
